@@ -14,8 +14,8 @@ class point:
 p1 = point (5,2)
 p2 = point (10,10)
 p3 = p1 + p2
-
-print (p3)
+p4 = p3 + p1
+print (p4)
 
 
 
