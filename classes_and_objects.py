@@ -75,9 +75,36 @@ def grow_rectangle(rect, dwidth, dheight):
 
 grow_rectangle(box, 50,100)
 print (box.width, box.height)
+"""Exercise 2  
+Write a function named move_rectangle that takes a Rectangle and two numbers named dx and dy. 
+It should change the location of the rectangle by adding dx to the x coordinate of corner and adding dy to the y coordinate of corner."""
+
 
 #Copying
 
+a1 = point()
+a1.x = 3.0
+a1.y = 4.0
+
+import copy
+
+b1 = copy.copy(a1)
+
+print_point(a1)
+print_point(b1)
+
+print(a1 is b1)
+print(a1 == b1)
+
+box1 = copy.copy(box)
+print(box1 is box)
+print(box1.width == box.width) #This operation is called a shallow copy
+
+#deep copy
+
+box2 = copy.deepcopy(box)
+print (box2 is box)
+print (box2.corner.x is box.corner)
 
 
 
