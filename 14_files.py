@@ -18,10 +18,10 @@ abspath = os.path.abspath("newfile.txt")
 fout.write(abspath)
 print (os.path.exists("newfile.txt"))
 print (os.path.isdir("newfile.txt"))
-print (os.path.isdir("/home/aadhith/Python/github/Labs"))
+#print (os.path.isdir("/home/aadhith/Python/github/Labs"))
 print (os.path.isfile("newfile.txt"))
-print (os.listdir("/home/aadhith/"))
-print (type(os.listdir("/home/aadhith/")))
+#print (os.listdir("/home/aadhith/"))
+#print (type(os.listdir("/home/aadhith/")))
 
 def walk(dirname):
     for name in os.listdir(dirname):
