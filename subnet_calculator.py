@@ -3,13 +3,15 @@ import math
 input_ip = input ("Enter the IP address :")
 input_smask = input ("Enter the subnet mask :")
 
-ip = input_ip.split(".")
-print (ip)
+ip_str = input_ip.split(".")
+print (ip_str)
 smask = int(input_smask)
-print (type(smask))
+ip = list(map(int,ip_str))
+
+print (ip)
 
 class ip_v4():
-    def __init__(self,a =0,b=0,c=0,d=0):
+    def __init__(self,a,b,c,d):
         self.a = a
         self.b = b
         self.c = c
@@ -17,9 +19,7 @@ class ip_v4():
     def __str__ (self):
         return "%.3d .%.3d .%.3d .%.3d" % (self.a,self.b,self.c,self.d)
 
-
-x = ip_v4()
-print (x)
+print (type(ip[2]))
 
 
 
