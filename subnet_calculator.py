@@ -2,19 +2,18 @@ import math
 
 input_ip = input ("Enter the IP address :")
 input_smask = input ("Enter the subnet mask :")
+smask = int(input_smask)
 
 ip_str = input_ip.split(".")
-print (ip_str)
-smask = int(input_smask)
+print(ip_str)
+
 ip_int = list(map(int,ip_str))
-print (ip_int)
+print(ip_int)
 
-ip_bin = []
-for i in range (4):
-    ip_bin.append(bin(ip_int[i]))
-    print (ip_bin)
-
-ip_b = list(map(int,ip_bin))
+ip_bstr = ["{0:08b}".format(ip_int[0]),"{0:08b}".format(ip_int[1]),"{0:08b}".format(ip_int[2]),"{0:08b}".format(ip_int[3])]
+print (ip_bstr)
+ip_bin = list(map(int,ip_bstr)) #ip in binary string
+print (ip_bin)
 
 class ip_v4():
     def __init__(self,a = ip_b[0],b =ip_b[1],c =ip_b[2],d =ip_b[3]):
@@ -34,6 +33,6 @@ print (i)
 
 print (type(ip[2]))
 
-
+"""
 
 
