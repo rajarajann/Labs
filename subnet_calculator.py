@@ -1,4 +1,6 @@
 import math
+import struct
+import pprint
 
 input_ip = input ("Enter the IP address :")
 input_smask = input ("Enter the subnet mask :")
@@ -16,19 +18,21 @@ ip_bin = list(map(int,ip_bstr)) #ip in binary string
 print (ip_bin)
 
 class ip_v4():
-    def __init__(self,a = ip_bin[0],b =ip_bin[1],c =ip_bin[2],d =ip_bin[3]):
+    def __init__(self,a,b,c,d):
         self.a = a
         self.b = b
         self.c = c
         self.d = d
-        self.d = d
+
     def __str__ (self):
         return "%d.%d.%d.%d" % (self.a,self.b,self.c,self.d)
 
+ip_binaryaddress = ip_v4(ip_bin[0],ip_bin[1],ip_bin[2],ip_bin[3])
+ip_intaddress = ip_v4(ip_int[0],ip_int[1],ip_int[2],ip_int[3])
+
+print ("IP Address:",ip_intaddress,"       ",ip_binaryaddress)
 
 
-i = ip_v4()
-print (i)
 
-print ("IP Address:",ip_int,"       ",i)
+
 
