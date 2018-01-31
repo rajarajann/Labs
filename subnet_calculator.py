@@ -17,6 +17,15 @@ print (ip_bstr)
 ip_bin = list(map(int,ip_bstr)) #ip in binary string
 print (ip_bin)
 
+def s_mask(smask): #got this logic from http://code.activestate.com/recipes/576483-convert-subnetmask-from-cidr-notation-to-dotdecima/
+    bits = 0
+    for i in range(32-smask,32):
+        bits |= (1 << i)
+    return "%d.%d.%d.%d" % ((bits & 0xff000000) >> 24, (bits & 0xff0000) >> 16, (bits & 0xff00) >> 8 , (bits & 0xff))
+
+subnetmask_int = list(map(int,s_mask(smask)))
+print(subnet_mask)
+
 class ip_v4():
     def __init__(self,a,b,c,d):
         self.a = a
@@ -29,11 +38,10 @@ class ip_v4():
 
 ip_binaryaddress = ip_v4(ip_bin[0],ip_bin[1],ip_bin[2],ip_bin[3])
 ip_intaddress = ip_v4(ip_int[0],ip_int[1],ip_int[2],ip_int[3])
+subnet = ip_v4(0,0,0,0)
 
 print ("IP Address:",ip_intaddress,"       ",ip_binaryaddress)
-
-def netmask():
-
+print ("Sub Net:",subnet,"      ")
 
 
 
