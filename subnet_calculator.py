@@ -32,6 +32,7 @@ ip_intaddress = ip_v4(ip_int[0],ip_int[1],ip_int[2],ip_int[3])
 
 print ("IP Address:",ip_intaddress,"       ",ip_binaryaddress)
 
+def netmask():
 
 
 
