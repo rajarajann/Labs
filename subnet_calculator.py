@@ -16,23 +16,19 @@ ip_bin = list(map(int,ip_bstr)) #ip in binary string
 print (ip_bin)
 
 class ip_v4():
-    def __init__(self,a = ip_b[0],b =ip_b[1],c =ip_b[2],d =ip_b[3]):
+    def __init__(self,a = ip_bin[0],b =ip_bin[1],c =ip_bin[2],d =ip_bin[3]):
         self.a = a
         self.b = b
         self.c = c
         self.d = d
         self.d = d
     def __str__ (self):
-        return "%d .%d .%d .%d" % (self.a,self.b,self.c,self.d)
+        return "%d.%d.%d.%d" % (self.a,self.b,self.c,self.d)
 
 
 
 i = ip_v4()
 print (i)
 
-
-print (type(ip[2]))
-
-"""
-
+print ("IP Address:",ip_int,"       ",i)
 
