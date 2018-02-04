@@ -3,7 +3,7 @@ import struct
 import pprint
 
 input_ip = "10.10.10.10"
-input_smask = "24"
+input_smask = "16"
 smask = int(input_smask)
 
 ip_str = input_ip.split(".") #ip is in string - ['192', '168', '1', '1']
@@ -20,7 +20,7 @@ def s_mask(smask): #got this logic from http://code.activestate.com/recipes/5764
     bits = 0
     for i in range(32-smask,32):
         bits |= (1 << i)
-    return"%d.%d.%d.%d" % ((bits & 0xff000000) >> 24, (bits & 0xff0000) >> 16, (bits & 0xff00) >> 8 , (bits & 0xff))
+    return "%d.%d.%d.%d" % ((bits & 0xff000000) >> 24, (bits & 0xff0000) >> 16, (bits & 0xff00) >> 8 , (bits & 0xff))
 
 subnet_str = s_mask(smask).split(".") #subnet is in string ['255', '255', '255', '0']
 print(subnet_str)
@@ -50,10 +50,12 @@ subnet_intaddress = ip_v4(subnet_intlist[0],subnet_intlist[1],subnet_intlist[2],
 print ("IP Address:",ip_intaddress,"       ",ip_binaryaddress)
 print ("Sub Net:",subnet_intaddress,"      ",subnet_binaryaddress)
 
-def wildcard():
-    bits = 0
-    for i in range(32 - smask, 32):
-        bits |= (1 << i)
-    return "%d.%d.%d.%d" % ((bits & 0xff000000) >> 24, (bits & 0xff0000) >> 16, (bits & 0xff00) >> 8, (bits & 0xff))
+def wildcard(subnet_intlist):
+    octet_list = []
+    for octet in subnet_intlist:
+        each_octet = "{0:08b}".format(255-int(octet))
+        octet_list.append(each_octet)
+    print (octet_list)
 
-wildcard()
+wildcard(subnet_intlist)
+
