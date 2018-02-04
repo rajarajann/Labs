@@ -52,14 +52,6 @@ class ip_v4():
     def __str__ (self):
         return "%d.%d.%d.%d" % (self.a,self.b,self.c,self.d)
 
-ip_binaryaddress = ip_v4(ip_blist[0],ip_blist[1],ip_blist[2],ip_blist[3])
-ip_intaddress = ip_v4(ip_int[0],ip_int[1],ip_int[2],ip_int[3])
-subnet_binaryaddress = ip_v4(subnet_binarylist[0],subnet_binarylist[1],subnet_binarylist[2],subnet_binarylist[3])
-subnet_intaddress = ip_v4(subnet_intlist[0],subnet_intlist[1],subnet_intlist[2],subnet_intlist[3])
-
-print ("IP Address:",ip_intaddress,"       ",ip_binaryaddress)
-print ("Sub Net:",subnet_intaddress,"      ",subnet_binaryaddress)
-
 def bin_to_int(binary_str):
     dict = {}
     i = 0
@@ -72,9 +64,20 @@ def bin_to_int(binary_str):
             dict[i] = b_sum
             power -= 1
         i += 1
-    print (dict)
-    ip_v4()
+    #print (dict)
+    value_list = list(dict.values())
+    #print (value_list)
+    ip_in_int = ip_v4(value_list[0],value_list[1],value_list[2],value_list[3])
+    print(ip_in_int)
 
-(bin_to_int(['00000000','00000000','11111111','11111111']))
+ip_binaryaddress = ip_v4(ip_blist[0],ip_blist[1],ip_blist[2],ip_blist[3])
+ip_intaddress = ip_v4(ip_int[0],ip_int[1],ip_int[2],ip_int[3])
+subnet_binaryaddress = ip_v4(subnet_binarylist[0],subnet_binarylist[1],subnet_binarylist[2],subnet_binarylist[3])
+subnet_intaddress = ip_v4(subnet_intlist[0],subnet_intlist[1],subnet_intlist[2],subnet_intlist[3])
+
+print ("IP Address:",ip_intaddress,"       ",ip_binaryaddress)
+print ("Sub Net:",subnet_intaddress,"      ",subnet_binaryaddress)
+bin_to_int(['00000000','11111111','11111111','11111111'])
+
 
 
