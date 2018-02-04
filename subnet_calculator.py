@@ -27,10 +27,20 @@ print(subnet_str)
 subnet_intlist = list(map(int,subnet_str)) #subnet is in int list [255, 255, 255, 0]
 print(subnet_intlist)
 subnet_binarystr = ["{0:08b}".format(subnet_intlist[0]),"{0:08b}".format(subnet_intlist[1]),"{0:08b}".format(subnet_intlist[2]),"{0:08b}".format(subnet_intlist[3])]
-print((subnet_binarystr[0])) #subnet is in binary string
+print(subnet_binarystr) #subnet is in binary string
 subnet_binarylist = list(map(int,subnet_binarystr))
 print((subnet_binarylist))
 
+def wildcard(subnet_intlist):
+    octet_list = []
+    for octet in subnet_intlist:
+        each_octet = "{0:08b}".format(255-int(octet))
+        octet_list.append(each_octet)
+    return (octet_list)
+wildcard_binarystr = wildcard(subnet_intlist)
+print (wildcard_binarystr)
+wildcard_binarylist = list(map(int,wildcard_binarystr))
+print((wildcard_binarylist))
 
 class ip_v4():
     def __init__(self,a,b,c,d):
@@ -50,12 +60,21 @@ subnet_intaddress = ip_v4(subnet_intlist[0],subnet_intlist[1],subnet_intlist[2],
 print ("IP Address:",ip_intaddress,"       ",ip_binaryaddress)
 print ("Sub Net:",subnet_intaddress,"      ",subnet_binaryaddress)
 
-def wildcard(subnet_intlist):
-    octet_list = []
-    for octet in subnet_intlist:
-        each_octet = "{0:08b}".format(255-int(octet))
-        octet_list.append(each_octet)
-    print (octet_list)
+def bin_to_int(binary_str):
+    dict = {}
+    i = 0
+    for each_element in binary_str: #its a list only
+        b_sum = 0
+        binary_number = each_element
+        power = len (binary_number) - 1
+        for digit in binary_number:
+            b_sum = int(digit)*(2**power) + b_sum
+            dict[i] = b_sum
+            power -= 1
+        i += 1
+    print (dict)
+    ip_v4()
 
-wildcard(subnet_intlist)
+(bin_to_int(['00000000','00000000','11111111','11111111']))
+
 
